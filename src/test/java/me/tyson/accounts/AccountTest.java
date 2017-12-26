@@ -13,8 +13,8 @@ public class AccountTest {
     @Test
     public void getterSetter() {
         Account account = new Account();
-        account.setLoinId("tyson");
+        account.setUsername("tyson");
         account.setPassword("password");
-        assertThat(account.getLoinId(), is("tyson"));
+        assertThat(account.getUsername(), is("tyson"));
     }
 }

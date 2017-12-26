@@ -3,9 +3,8 @@ package me.tyson.accounts;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Created by tyson on 2017-12-23.
@@ -24,5 +23,18 @@ public class Account {
     private String loinId;
 
     private String password;
+
+    private String email;
+
+    @Column(unique = true)
+    private String username;
+
+    private String fullName;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date joined;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updated;
 
 }
