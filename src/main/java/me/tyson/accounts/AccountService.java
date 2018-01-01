@@ -25,19 +25,14 @@ public class AccountService {
 
     public Account createAccount(AccountDto.Create dto) {
 
-
-//        Account account = new Account();
-//        account.setUsername(dto.getUsername());
-//        account.setPassword(dto.getPassword());
-
-//BeanUtils
-//        Account account = new Account();
-//        BeanUtils.copyProperties(dto, account);
-
-        //ModelMapper 사용으로 Account object에 set
         Account account = modelMapper.map(dto, Account.class);
 
         //TODO 유효한 username인지 판단
+        String username = dto.getUsername();
+        if(repository.findByUsername(username) != null){
+            throw new UserDuplicatedException(username);
+        }
+
         //TODO password 해싱
 
         Date now = new Date();
