@@ -1,0 +1,37 @@
+2018-01-11 21:05:53.765  INFO 68592 --- [main] m.t.AmugonaagainApplication              : Starting AmugonaagainApplication on oolongs-iMac.hitronhub.home with PID 68592 (/Users/oolong/Downloads/DEV/workspace/amugonaagain/target/classes started by oolong in /Users/oolong/Downloads/DEV/workspace/amugonaagain)
+2018-01-11 21:05:53.768  INFO 68592 --- [main] m.t.AmugonaagainApplication              : No active profile set, falling back to default profiles: default
+2018-01-11 21:05:53.803  INFO 68592 --- [main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3433472d: startup date [Thu Jan 11 21:05:53 PST 2018]; root of context hierarchy
+2018-01-11 21:05:55.006  INFO 68592 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-01-11 21:05:55.016  INFO 68592 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2018-01-11 21:05:55.017  INFO 68592 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-01-11 21:05:55.088  INFO 68592 --- [localhost-startStop-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2018-01-11 21:05:55.088  INFO 68592 --- [localhost-startStop-1] o.s.w.c.ContextLoader                    : Root WebApplicationContext: initialization completed in 1287 ms
+2018-01-11 21:05:55.193  INFO 68592 --- [localhost-startStop-1] o.s.b.w.s.ServletRegistrationBean        : Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-11 21:05:55.199  INFO 68592 --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-11 21:05:55.199  INFO 68592 --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-01-11 21:05:55.199  INFO 68592 --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-01-11 21:05:55.200  INFO 68592 --- [localhost-startStop-1] o.s.b.w.s.FilterRegistrationBean         : Mapping filter: 'requestContextFilter' to: [/*]
+2018-01-11 21:05:55.644  INFO 68592 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-01-11 21:05:55.661  INFO 68592 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-11 21:05:55.728  INFO 68592 --- [main] o.h.Version                              : HHH000412: Hibernate Core {5.0.12.Final}
+2018-01-11 21:05:55.729  INFO 68592 --- [main] o.h.c.Environment                        : HHH000206: hibernate.properties not found
+2018-01-11 21:05:55.731  INFO 68592 --- [main] o.h.c.Environment                        : HHH000021: Bytecode provider name : javassist
+2018-01-11 21:05:55.770  INFO 68592 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-11 21:05:55.881  INFO 68592 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-01-11 21:05:56.339  INFO 68592 --- [main] o.h.t.h.SchemaExport                     : HHH000227: Running hbm2ddl schema export
+2018-01-11 21:05:56.356  INFO 68592 --- [main] o.h.t.h.SchemaExport                     : HHH000230: Schema export complete
+2018-01-11 21:05:56.389  INFO 68592 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-01-11 21:05:57.101  INFO 68592 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@3433472d: startup date [Thu Jan 11 21:05:53 PST 2018]; root of context hierarchy
+2018-01-11 21:05:57.172  INFO 68592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/hello]}" onto public java.lang.String me.tyson.accounts.AccountController.hello()
+2018-01-11 21:05:57.173  INFO 68592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/accounts],methods=[POST]}" onto public org.springframework.http.ResponseEntity me.tyson.accounts.AccountController.createAccount(me.tyson.accounts.AccountDto$Create,org.springframework.validation.BindingResult)
+2018-01-11 21:05:57.173  INFO 68592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/accounts],methods=[GET]}" onto public org.springframework.http.ResponseEntity me.tyson.accounts.AccountController.getAccounts(org.springframework.data.domain.Pageable)
+2018-01-11 21:05:57.176  INFO 68592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-01-11 21:05:57.177  INFO 68592 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-01-11 21:05:57.204  INFO 68592 --- [main] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-11 21:05:57.205  INFO 68592 --- [main] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-11 21:05:57.238  INFO 68592 --- [main] o.s.w.s.h.SimpleUrlHandlerMapping        : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-11 21:05:57.435  INFO 68592 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-01-11 21:05:57.501  INFO 68592 --- [main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2018-01-11 21:05:57.509  INFO 68592 --- [main] m.t.AmugonaagainApplication              : Started AmugonaagainApplication in 4.029 seconds (JVM running for 6.795)
