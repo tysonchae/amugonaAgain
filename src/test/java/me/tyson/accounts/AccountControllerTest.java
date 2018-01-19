@@ -22,6 +22,7 @@ import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
 import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -42,6 +43,9 @@ public class AccountControllerTest {
     ObjectMapper objectMapper;
 
     MockMvc mockMvc;
+
+    @Autowired
+    AccountService service;
 
     @Before
     public void setUp(){
@@ -94,11 +98,41 @@ public class AccountControllerTest {
         AccountDto.Create  createDto = new AccountDto.Create();
         createDto.setUsername("tyson");
         createDto.setPassword("password");
+        service.createAccount(createDto);
 
         ResultActions result = mockMvc.perform(get("/accounts"));
 
         result.andDo(print());
         result.andExpect(status().isOk());
     }
+
+    @Test
+    public void getAccount() throws Exception {
+        AccountDto.Create createDto = new AccountDto.Create();
+        Account account = service.createAccount(createDto);
+        ResultActions result = mockMvc.perform(get("/accounts/" + account.getId()));
+
+        result.andDo(print());
+        result.andExpect(status().isOk());
+    }
+
+    @Test
+    public void updateAccount() throws Exception {
+        AccountDto.Create createDto = new AccountDto.Create();
+        Account account = service.createAccount(createDto);
+
+        AccountDto.Update updateDto = new AccountDto.Update();
+        updateDto.setFullName("tyson");
+        updateDto.setPassword("pass");
+
+        ResultActions result = mockMvc.perform(put("/accounts/" + account.getId())
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(updateDto)));
+
+        result.andDo(print());
+        result.andExpect(status().isOk());
+        result.andExpect(jsonPath("$.fullName").value("tyson"));
+    }
+
 
 }
