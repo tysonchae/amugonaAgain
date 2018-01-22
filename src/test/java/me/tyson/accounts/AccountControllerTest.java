@@ -20,9 +20,7 @@ import javax.transaction.Transactional;
 
 import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
 import static org.junit.Assert.*;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -79,7 +77,7 @@ public class AccountControllerTest {
 
     @Test
     public void createAccount_BadRequest() throws Exception{
-        AccountDto.Create createDto = new AccountDto.Create();
+        AccountDto.Create createDto = accountCreateDto();
         createDto.setUsername("  ");
         createDto.setPassword("1234");
 
@@ -95,7 +93,7 @@ public class AccountControllerTest {
 
     @Test
     public void getAccounts() throws Exception {
-        AccountDto.Create  createDto = new AccountDto.Create();
+        AccountDto.Create  createDto = accountCreateDto();
         createDto.setUsername("tyson");
         createDto.setPassword("password");
         service.createAccount(createDto);
@@ -106,9 +104,17 @@ public class AccountControllerTest {
         result.andExpect(status().isOk());
     }
 
+    private AccountDto.Create accountCreateDto() {
+        AccountDto.Create createDto = new AccountDto.Create();
+        createDto.setUsername("tyson");
+        createDto.setPassword("password");
+        return createDto;
+
+    }
+
     @Test
     public void getAccount() throws Exception {
-        AccountDto.Create createDto = new AccountDto.Create();
+        AccountDto.Create createDto = accountCreateDto();
         Account account = service.createAccount(createDto);
         ResultActions result = mockMvc.perform(get("/accounts/" + account.getId()));
 
@@ -118,11 +124,11 @@ public class AccountControllerTest {
 
     @Test
     public void updateAccount() throws Exception {
-        AccountDto.Create createDto = new AccountDto.Create();
+        AccountDto.Create createDto = accountCreateDto();
         Account account = service.createAccount(createDto);
 
         AccountDto.Update updateDto = new AccountDto.Update();
-        updateDto.setFullName("tyson");
+        updateDto.setFullName("tyson chae");
         updateDto.setPassword("pass");
 
         ResultActions result = mockMvc.perform(put("/accounts/" + account.getId())
@@ -131,8 +137,22 @@ public class AccountControllerTest {
 
         result.andDo(print());
         result.andExpect(status().isOk());
-        result.andExpect(jsonPath("$.fullName").value("tyson"));
+        result.andExpect(jsonPath("$.fullName").value("tyson chae"));
     }
 
+    @Test
+    public void deleteAccount() throws Exception {
+//        ResultActions result = mockMvc.perform(delete("/accounts/1"));
+//        result.andDo(print());
+//        result.andExpect(status().isBadRequest());
 
+//        AccountDto.Create createDto = accountCreateDto();
+//        Account account = service.createAccount(createDto);
+//
+//        ResultActions result = mockMvc.perform(delete("/acconnts/"+account.getId()));
+//        result.andDo(print());
+//        result.andExpect(status().isNoContent());
+
+
+    }
 }

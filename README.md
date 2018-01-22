@@ -4,5 +4,5 @@ Day 3 : 예외처리
 Day 4 : 계정목록 조회 API 구현
 Day 5 : 스프링 부트 로깅
 Day 6 : GET, UPDATE API 구현
-
+Day 7 : DELETE API 추가 그리고 대문 하나 만들기
 
